@@ -1,0 +1,30 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    width: 230px;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.wrapper button {
+    height: 60px;
+    width: 80px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.wrapper div {
+    height: 40px;
+    width: 40px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}

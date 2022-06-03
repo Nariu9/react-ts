@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
+import {OnOff} from "./components/OnOff/OnOff";
 
 function sum(a: number, b: number) {
     alert(a + b)
@@ -9,22 +10,28 @@ function sum(a: number, b: number) {
 
 /*sum();*/
 
+
 function App() {
     console.log('App rendering');
+
+    const [switcher, setSwitcher] = useState<boolean>(false)
+
+    const switchOnOff = (value:boolean) => {
+        setSwitcher(value)
+    }
+
     return (
         <div>
-            <PageTitle title={'This is APP component'}/>
-            <PageTitle title={'My friends'}/>
-            Article 1
-            <Rating value={3}/>
             <Accordion titleValue={'Menu'} collapsed={true}/>
             <Accordion titleValue={'Users'} collapsed={false}/>
+
             <Rating value={0}/>
             <Rating value={1}/>
             <Rating value={2}/>
             <Rating value={3}/>
             <Rating value={4}/>
             <Rating value={5}/>
+            <OnOff value={switcher} switchOnOff={switchOnOff}/>
         </div>
     );
 }

@@ -1,19 +1,50 @@
-import classes from "./OnOff.module.css";
-import React from "react";
+import React, {useState} from 'react';
 
-type OnOffPropsType = {
-    value:boolean
-    switchOnOff:(value:boolean)=>void
+type OnOffAlternativePropsType = {
+    /*on: boolean*/
 }
 
+const OnOff = (props:OnOffAlternativePropsType) => {
+    console.log('OnOff rendering')
 
-export const OnOff = (props:OnOffPropsType) => {
+    let [on, setOn] =useState(false)
+    console.log(on)
+
+    const onStyle = {
+        width: "30px",
+        height: "20px",
+        border: "1px black solid",
+        display: "inline-block",
+        margin: "5px",
+        padding: "5px",
+        backgroundColor: on ? "green" : "white"//props.on && "green" не сработает, т.к. false - это не цвет
+    };
+    const offStyle = {
+        width: "30px",
+        height: "20px",
+        border: "1px black solid",
+        display: "inline-block",
+        margin: "5px",
+        padding: "5px",
+        backgroundColor: on ? "white" : "red"
+    };
+    const indicatorStyle = {
+        width: "10px",
+        height: "10px",
+        borderRadius: "5px",
+        border: "1px black solid",
+        display: "inline-block",
+        margin: "5px",
+        backgroundColor: on ? "green" : "red"
+    }
 
     return (
-     <div className={classes.wrapper}>
-       <button className={`${props.value && classes.green}`} onClick={()=>props.switchOnOff(true)}>ON</button>
-       <button className={`${!props.value && classes.red}`} onClick={()=>props.switchOnOff(false)}>OFF</button>
-       <div className={props.value ? classes.green : classes.red}></div>
-     </div>
-  )
-}
+        <div>
+            <div style={onStyle} onClick={()=>setOn(true)}>On</div>
+            <div style={offStyle} onClick={()=>setOn(false)}>Off</div>
+            <div style={indicatorStyle}></div>
+        </div>
+    );
+};
+
+export default OnOff

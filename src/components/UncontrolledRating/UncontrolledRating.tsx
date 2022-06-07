@@ -9,18 +9,22 @@ export function UncontrolledRating(props: UncontrolledRatingPropsType) {
 
     const [starSelected, setStarSelected] = useState(0)
 
+    const onClickHandler = (value:number) => {
+        setStarSelected(value)
+    }
+
     return (
         <div>
             <Star selected={starSelected > 0}/>
-            <button onClick={()=>setStarSelected(1)}>1</button>
+            <button onClick={()=>onClickHandler(1)}>1</button>
             <Star selected={starSelected > 1}/>
-            <button onClick={()=>setStarSelected(2)}>2</button>
+            <button onClick={()=>onClickHandler(2)}>2</button>
             <Star selected={starSelected > 2}/>
-            <button onClick={()=>setStarSelected(3)}>3</button>
+            <button onClick={()=>onClickHandler(3)}>3</button>
             <Star selected={starSelected > 3}/>
-            <button onClick={()=>setStarSelected(4)}>4</button>
+            <button onClick={()=>onClickHandler(4)}>4</button>
             <Star selected={starSelected > 4}/>
-            <button onClick={()=>setStarSelected(5)}>5</button>
+            <button onClick={()=>onClickHandler(5)}>5</button>
         </div>
     )
 }
@@ -31,10 +35,7 @@ type StarPropsType= {
 
 function Star(props: StarPropsType) {
     console.log('Star rendering');
-
-    if (props.selected === true) {
-        return <span><b>star </b></span>
-    } else {
-        return <span>star </span>
-    }
+    return (
+        props.selected ? <span><b>star</b></span> : <span>star </span>
+    )
 }

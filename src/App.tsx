@@ -24,27 +24,15 @@ function App() {
     }
 
     return (
-        <div>
-            {/*<Accordion titleValue={'Menu1'} collapsed={true}/>
-            <Accordion titleValue={'Users1'} collapsed={false}/>*/}
+        <div className={"App"}>
 
-            <Rating value={0}/>
-            <Rating value={1}/>
-            <Rating value={2}/>
-            <Rating value={3}/>
-            <Rating value={4}/>
-            <Rating value={5}/>
-
-
-            <OnOffAlternative value={switcher} switchOnOff={switchOnOff}/>
-            <OnOff />
+            {/*<OnOffAlternative value={switcher} switchOnOff={switchOnOff}/>*/}
             <OnOff />
             <UncontrolledAccordion titleValue={'Menu2'}/>
-            <UncontrolledAccordion titleValue={'Users2'}/>
             <UncontrolledRating/>
 
-
-
+            <Rating value={4}/>
+            <Accordion titleValue={'Menu1'} collapsed={false}/>
         </div>
     );
 }

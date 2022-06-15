@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import './App.css';
-import Accordion from "./components/Accordion/Accordion";
-import {Rating} from "./components/Rating/Rating";
-import {OnOffAlternative} from "./components/OnOff/OnOffAlternative";
-import OnOff from "./components/OnOff/OnOff";
-import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
+import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
+import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
+import Accordion from "./components/Accordion/Accordion";
+import UncontrolledOnOff from "./components/UncontrolledOnOff/UncontrolledOnOff";
+import OnOff from "./components/OnOff/OnOff";
 
 function sum(a: number, b: number) {
     alert(a + b)
@@ -19,34 +19,41 @@ function App() {
 
     const [switcher, setSwitcher] = useState<boolean>(false)
 
-    const switchOnOff = (value:boolean) => {
+    const switchOnOff = (value: boolean) => {
         setSwitcher(value)
     }
 
+    const [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+    const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
+    const [on, setOn] = useState<boolean>(false)
+
     return (
         <div className={"App"}>
+{/*
+            <OnOffAlternative value={switcher} switchOnOff={switchOnOff}/>
+             <UncontrolledOnOff />*/}
 
-            {/*<OnOffAlternative value={switcher} switchOnOff={switchOnOff}/>*/}
-            <OnOff />
+            uncontrolled components
+             <UncontrolledRating/>
             <UncontrolledAccordion titleValue={'Menu2'}/>
-            <UncontrolledRating/>
-
-            <Rating value={4}/>
-            <Accordion titleValue={'Menu1'} collapsed={false}/>
+            <UncontrolledOnOff/>
+            controlled components
+            <Rating value={ratingValue} onClick={setRatingValue}/>
+             <Accordion titleValue={'Menu1'} collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>
+            <OnOff on={on} callback={setOn}/>
         </div>
     );
 }
 
-type PageTitlePropsType= {
+type PageTitlePropsType = {
     title: string
 }
 
 function PageTitle(props: PageTitlePropsType) {
     debugger
     console.log('PageTitle rendering');
-    return <h1>{ props.title }</h1>
+    return <h1>{props.title}</h1>
 }
-
 
 
 export default App;

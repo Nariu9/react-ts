@@ -1,12 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-type OnOffPropsType = {
-    on:boolean
-    callback:(value:boolean)=>void
-}
 
-const OnOff = (props:OnOffPropsType) => {
-    console.log('OnOff rendering')
+
+const UncontrolledOnOff = () => {
+    console.log('UncontrolledOnOff rendering')
+
+    let [on, setOn] =useState(false)
+    console.log(on)
 
     const onStyle = {
         width: "30px",
@@ -15,7 +15,7 @@ const OnOff = (props:OnOffPropsType) => {
         display: "inline-block",
         margin: "5px",
         padding: "5px",
-        backgroundColor: props.on ? "green" : "white"//props.on && "green" не сработает, т.к. false - это не цвет
+        backgroundColor: on ? "green" : "white"//props.on && "green" не сработает, т.к. false - это не цвет
     };
     const offStyle = {
         width: "30px",
@@ -24,7 +24,7 @@ const OnOff = (props:OnOffPropsType) => {
         display: "inline-block",
         margin: "5px",
         padding: "5px",
-        backgroundColor: props.on ? "white" : "red"
+        backgroundColor: on ? "white" : "red"
     };
     const indicatorStyle = {
         width: "10px",
@@ -33,16 +33,16 @@ const OnOff = (props:OnOffPropsType) => {
         border: "1px black solid",
         display: "inline-block",
         margin: "5px",
-        backgroundColor: props.on ? "green" : "red"
+        backgroundColor: on ? "green" : "red"
     }
 
     return (
         <div>
-            <div style={onStyle} onClick={()=>props.callback(!props.on)}>On</div>
-            <div style={offStyle} onClick={()=>props.callback(!props.on)}>Off</div>
+            <div style={onStyle} onClick={()=>setOn(true)}>On</div>
+            <div style={offStyle} onClick={()=>setOn(false)}>Off</div>
             <div style={indicatorStyle}></div>
         </div>
     );
 };
 
-export default OnOff
+export default UncontrolledOnOff

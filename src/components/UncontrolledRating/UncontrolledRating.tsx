@@ -1,17 +1,39 @@
 import React, {useState} from "react";
 
-export function UncontrolledRating() {
+export type UncontrolledRatingValueType = 0 | 1 | 2 | 3 | 4 | 5
+
+type UncontrolledRatingPropsType = {
+    defaultValue?: UncontrolledRatingValueType
+    onChange: (value: UncontrolledRatingValueType) => void
+}
+
+export function UncontrolledRating(props: UncontrolledRatingPropsType) {
     console.log('UncontrolledRating rendering');
 
-    const [starSelected, setStarSelected] = useState(0)
+    const [starSelected, setStarSelected] = useState<UncontrolledRatingValueType>(props.defaultValue ? props.defaultValue : 0)
 
     return (
         <div>
-            <Star selected={starSelected > 0} callback={()=>setStarSelected(1)}/>
-            <Star selected={starSelected > 1} callback={()=>setStarSelected(2)}/>
-            <Star selected={starSelected > 2} callback={()=>setStarSelected(3)}/>
-            <Star selected={starSelected > 3} callback={()=>setStarSelected(4)}/>
-            <Star selected={starSelected > 4} callback={()=>setStarSelected(5)}/>
+            <Star selected={starSelected > 0} callback={() => {
+                setStarSelected(1)
+                props.onChange(1)
+            }}/>
+            <Star selected={starSelected > 1} callback={() => {
+                setStarSelected(2)
+                props.onChange(2)
+            }}/>
+            <Star selected={starSelected > 2} callback={() => {
+                setStarSelected(3)
+                props.onChange(3)
+            }}/>
+            <Star selected={starSelected > 3} callback={() => {
+                setStarSelected(4)
+                props.onChange(4)
+            }}/>
+            <Star selected={starSelected > 4} callback={() => {
+                setStarSelected(5)
+                props.onChange(5)
+            }}/>
         </div>
     )
 }

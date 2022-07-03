@@ -39,9 +39,9 @@ function App() {
             <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
             controlled components
             <Rating value={ratingValue} onClick={setRatingValue}/>
-            <Accordion titleValue={'Menu1'}
+            {/*<Accordion titleValue={'Menu1'}
                        collapsed={accordionCollapsed}
-                       onClick={()=>setAccordionCollapsed(!accordionCollapsed)}/>
+                       onChange={()=>setAccordionCollapsed(!accordionCollapsed)}/>*/}
             <OnOff on={switchOn} callback={setSwitchOn}/>
         </div>
     );

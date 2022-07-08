@@ -12,11 +12,24 @@ export const SelectShowUp = () => {
     const [value, setValue] = useState(2)
 
     return <Select value={value}
-                   onChange={(id) => setValue(id)}
+                   onChange={setValue}
                    items={[
-                       {title: 'Bread', value: 1},
-                       {title: 'Milk', value: 2},
-                       {title: 'Cheese', value: 3},
-                       {title: 'Beef', value: 4}
+                       {value: 1, title: 'Bread'},
+                       {value: 2, title: 'Milk'},
+                       {value: 3, title: 'Cheese'},
+                       {value: 4, title: 'Vegetables'}
+                   ]}/>
+}
+
+export const SelectWithoutValue = () => {
+    const [value, setValue] = useState(null)
+
+    return <Select value={value}
+                   onChange={setValue}
+                   items={[
+                       {value: 1, title: 'Bread'},
+                       {value: 2, title: 'Milk'},
+                       {value: 3, title: 'Cheese'},
+                       {value: 4, title: 'Beef'}
                    ]}/>
 }

@@ -1,0 +1,27 @@
+.select .main{
+    border: 1px solid black;
+    display: inline-block;
+    min-height: 20px;
+    min-width: 40px;
+    cursor: default;
+}
+
+.items {
+    position: absolute;
+    border: 1px solid black;
+}
+
+.item {
+    padding: 5px;
+}
+
+.item:hover {
+    background: #1ea7fd;
+    cursor: default;
+}
+
+.item.selected {
+    background: #1ea7fd;
+    color: white;
+}
+

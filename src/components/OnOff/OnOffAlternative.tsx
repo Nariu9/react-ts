@@ -7,7 +7,7 @@ type OnOffPropsType = {
 }
 
 
-export const OnOffAlternative = (props:OnOffPropsType) => {
+export const OnOffAlternative = React.memo ((props:OnOffPropsType) => {
 
     return (
      <div className={classes.wrapper}>
@@ -16,4 +16,4 @@ export const OnOffAlternative = (props:OnOffPropsType) => {
        <div className={props.value ? classes.green : classes.red}></div>
      </div>
   )
-}
+})

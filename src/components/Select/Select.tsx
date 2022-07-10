@@ -12,7 +12,7 @@ type SelectPropsType = {
     items: ItemType[]
 }
 
-export const Select = ({value, items, onChange}: SelectPropsType) => {
+export const Select = React.memo (({value, items, onChange}: SelectPropsType) => {
     const [collapsed, setCollapsed] = useState(true)
     const [hoveredElementValue, setHoveredElementValue] = useState(value)
 
@@ -73,4 +73,4 @@ export const Select = ({value, items, onChange}: SelectPropsType) => {
             </div>
         </>
     );
-};
+});

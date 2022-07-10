@@ -1,11 +1,11 @@
 import React from 'react';
 
 type OnOffPropsType = {
-    on:boolean
-    callback:(value:boolean)=>void
+    on: boolean
+    callback: (value: boolean) => void
 }
 
-const OnOff = (props:OnOffPropsType) => {
+const OnOff = React.memo((props: OnOffPropsType) => {
     console.log('OnOff rendering')
 
     const onStyle = {
@@ -38,11 +38,11 @@ const OnOff = (props:OnOffPropsType) => {
 
     return (
         <div>
-            <div style={onStyle} onClick={()=>props.callback(!props.on)}>On</div>
-            <div style={offStyle} onClick={()=>props.callback(!props.on)}>Off</div>
+            <div style={onStyle} onClick={() => props.callback(!props.on)}>On</div>
+            <div style={offStyle} onClick={() => props.callback(!props.on)}>Off</div>
             <div style={indicatorStyle}></div>
         </div>
     );
-};
+});
 
 export default OnOff

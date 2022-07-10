@@ -23,7 +23,21 @@ type AccordionBodyPropsType = {
     onClickHandler: (value: any) => void
 }
 
-export function Accordion(props: AccordionPropsType) {
+const AccordionTitle = React.memo((props: AccordionTitlePropsType) => {
+    console.log('AccordionTitle rendering')
+    return <h3 onClick={(e) => props.callback()}>-- {props.title} --</h3>
+});
+
+const AccordionBody = React.memo((props: AccordionBodyPropsType) => {
+    console.log('AccordionBody rendering')
+    return <ul>
+        {props.items.map((i, index) => <li onClick={() => {
+            props.onClickHandler(i.value)
+        }} key={index}>{i.title}</li>)}
+    </ul>
+});
+
+export const Accordion = React.memo((props: AccordionPropsType) => {
     console.log('Accordion rendering');
 
     return <div>
@@ -32,18 +46,4 @@ export function Accordion(props: AccordionPropsType) {
         />
         {!props.collapsed && <AccordionBody items={props.items} onClickHandler={props.onClickHandler}/>}
     </div>
-}
-
-function AccordionTitle(props: AccordionTitlePropsType) {
-    console.log('AccordionTitle rendering')
-    return <h3 onClick={(e) => props.callback()}>-- {props.title} --</h3>
-}
-
-function AccordionBody(props: AccordionBodyPropsType) {
-    console.log('AccordionBody rendering')
-    return <ul>
-        {props.items.map((i, index) => <li onClick={() => {
-            props.onClickHandler(i.value)
-        }} key={index}>{i.title}</li>)}
-    </ul>
-}
+});

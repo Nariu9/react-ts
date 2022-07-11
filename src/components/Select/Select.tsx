@@ -13,6 +13,7 @@ type SelectPropsType = {
 }
 
 export const Select = React.memo (({value, items, onChange}: SelectPropsType) => {
+    console.log('Select rendering')
     const [collapsed, setCollapsed] = useState(true)
     const [hoveredElementValue, setHoveredElementValue] = useState(value)
 
@@ -58,12 +59,12 @@ export const Select = React.memo (({value, items, onChange}: SelectPropsType) =>
 
     return (
         <>
-            <select>
+            {/*<select>
                 <option value="Bread">Bread</option>
                 <option value="Milk">Milk</option>
                 <option value="Cheese">Cheese</option>
                 <option value="Vegetables">Vegetables</option>
-            </select>
+            </select>*/}
             <div className={styles.select} tabIndex={0} onKeyDown={onKeyDownHandler}>
                 <span className={styles.main} onClick={toggleItems}
                       onBlur={() => setCollapsed(true)}>{selected && selected.title}</span>

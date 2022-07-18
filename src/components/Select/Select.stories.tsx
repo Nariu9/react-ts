@@ -71,6 +71,9 @@ export const SelectWithUseMemo = () => {
     const addCity = () => setState([...state, {value: 10, countryID: 'India', title: 'Chennai', population: 11503293}])
 
     return <>
+        <button onClick={() => setCounter(counter + 1)}>+</button>
+        <button onClick={addCity}>add city</button>
+        <Counter count={counter}/>
         <Select value={value}
                 onChange={setValue}
                 items={citiesWithM}/>
@@ -80,8 +83,5 @@ export const SelectWithUseMemo = () => {
         <Select value={value}
                 onChange={setValue}
                 items={bigCities}/>
-        <button onClick={() => setCounter(counter + 1)}>+</button>
-        <button onClick={addCity}>add city</button>
-        <Counter count={counter}/>
     </>
 }

@@ -32,4 +32,39 @@ export const SimpleExample = () => {
     </>
 }
 
+export const SetTimeoutExample = () => {
+    console.log('SetTimeoutExample rendering')
+
+    const [fake, setFake] = useState(1)
+    const [counter, setCounter] = useState(1)
+
+    useEffect(() => {
+        setInterval(() => {
+            setCounter(state => state + 1)
+        }, 1000)
+    }, [])
+
+
+    return <>
+        Hello, counter: {counter} - Fake: {fake}
+        {/* <button onClick={() => setFake(fake + 1)}>fake+</button>
+        <button onClick={() => setCounter(counter + 1)}>counter+</button>*/}
+    </>
+}
+
+export const MyClock = () => {
+    console.log('MyWatch rendering')
+    const [date, setTime] = useState<Date>(new Date())
+
+    useEffect(() => {
+        setInterval(() => {
+            setTime(new Date())
+        }, 1000)
+    }, [])
+
+    return <>
+        {date?.toLocaleTimeString()}
+    </>
+}
+
 

@@ -68,7 +68,7 @@ export const HelpsReactMemo = () => {
     </>
 }
 
-export const LikeUSeCallback = () => {
+export const LikeUseCallback = () => {
     console.log('LikeUseCallback rendering')
     const [counter, setCounter] = useState(0)
     const [books, setBooks] = useState(['React', 'JS', 'CSS', 'HTML'])

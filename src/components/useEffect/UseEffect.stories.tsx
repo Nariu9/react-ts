@@ -57,9 +57,12 @@ export const MyClock = () => {
     const [date, setTime] = useState<Date>(new Date())
 
     useEffect(() => {
-        setInterval(() => {
+       const id = setInterval(() => {
             setTime(new Date())
         }, 1000)
+        return () => {
+            clearInterval(id)
+        }
     }, [])
 
     return <>

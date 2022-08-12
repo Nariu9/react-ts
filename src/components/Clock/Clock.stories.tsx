@@ -9,12 +9,7 @@ export default {
 
 const Template: ComponentStory<typeof Clock> = (args) => <Clock{...args}/>;
 
-export const AnalogueClockExample = Template.bind({})
-AnalogueClockExample.args = {
-    analogueClockMode : true
-}
-
-export const DigitalClockExample = Template.bind({})
-DigitalClockExample.args = {
-    analogueClockMode : false
+export const ClockExample = Template.bind({})
+ClockExample.args = {
+    mode : 'analogue1'
 }
